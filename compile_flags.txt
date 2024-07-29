@@ -1,0 +1,4 @@
+-xc++
+-std=c++2b
+-I
+libwidget/include/
