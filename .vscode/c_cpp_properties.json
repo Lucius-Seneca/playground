@@ -1,20 +1,56 @@
 {
     "configurations": [
         {
-            "name": "Mac",
+            "name": "macOS",
             "includePath": [
-                "${workspaceFolder}/**",
-                "~/Workspace/eigen/**",
-                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/**"
+                "${workspaceFolder}/include/**",
+                "~/workspace/eigen",
+                "~/workspace/**"
             ],
-            "defines": [],
-            "macFrameworkPath": [
-                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
             ],
             "compilerPath": "/usr/bin/clang",
-            "cStandard": "c17",
-            "cppStandard": "c++23",
-            "intelliSenseMode": "macos-clang-arm64"
+            "cStandard": "c23",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "macos-clang-arm64",
+            "compilerArgs": []
+        },
+        {
+            "name": "Ubuntu64",
+            "includePath": [
+                "${workspaceFolder}/include/**",
+                "~/workspace/eigen"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c23",
+            "compileCommands": "clang++",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerArgs": []
+        },
+        {
+            "name": "Win64",
+            "includePath": [
+                "${workspaceFolder}/include/**",
+                "%userprofile%/workspace/eigen"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.18362.0",
+            "cStandard": "c23",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "windows-msvc-x64",
+            "compilerArgs": []
         }
     ],
     "version": 4

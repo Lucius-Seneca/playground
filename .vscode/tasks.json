@@ -1,0 +1,74 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ Aktive Datei kompilieren macOS",
+            "command": "g++",
+            "args": [
+                "-I",
+                "~/Workspace/eigen",
+                "-I",
+                "${workspaceFolder}/include",
+                "./src/utils.cpp",
+                "-o",
+                "${fileBasenameNoExtension}",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": "build",
+            "detail": "Vom Debugger generierte Aufgabe."
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ Aktive Datei kompilieren Ubuntu",
+            "command": "g++",
+            "args": [
+                "-I",
+                "~/Workspace/eigen",
+                "-I",
+                "${workspaceFolder}/include",
+                "./src/utils.cpp",
+                "-o",
+                "${fileBasenameNoExtension}",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": "build",
+            "detail": "Vom Debugger generierte Aufgabe."
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: clang++ Aktive Datei kompilieren Windows",
+            "command": "clang++",
+            "args": [
+                "-I",
+                "C:/Users/Mathias/Workspace/eigen",
+                "-I",
+                "{workspaceFolder}/include",
+                "./src/utils.cpp",
+                "-o",
+                "${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": "build",
+            "detail": "Vom Debugger generierte Aufgabe."
+        }
+    ],
+    "version": "2.0.0"
+}
