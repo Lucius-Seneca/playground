@@ -1,4 +1,4 @@
-#include "../include/node.hpp"
+#include "../include/graph/node.hpp"
 
 #include <iostream>
 
