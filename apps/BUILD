@@ -1,6 +1,6 @@
 cc_binary(
     name = "apps",
-    srcs = ["app.cpp"],
+    srcs = glob(["*.cpp"]),
     deps = [
         "//graph:graph",
     ],
