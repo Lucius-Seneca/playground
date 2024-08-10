@@ -7,19 +7,19 @@ project(
   Graph
   LANGUAGES CXX)
 
-file(GLOB MY_SRCS ./src/*)
-file(GLOB MY_HEADRS ./include/**/*)
+file(GLOB MY_SRCS ./**/src/*)
+file(GLOB MY_HEADRS ./**/include/**/*)
 file(GLOB MY_EXECU ./apps/*)
 
 add_library(graphlib ${MY_SRCS} ${MY_HEADRS})
 add_executable(${PROJECT_NAME} ${MY_EXECU})
 
 IF(WIN32)
-  target_include_directories(graphlib PRIVATE ${CMAKE_SOURCE_DIR}/include %userprofile%/workspace/eigen)
-  target_include_directories(Graph PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_SOURCE_DIR}/apps %userprofile%/workspace/eigen)
+  target_include_directories(graphlib PRIVATE ${CMAKE_SOURCE_DIR}/**/include %userprofile%/workspace/eigen)
+  target_include_directories(Graph PRIVATE ${CMAKE_SOURCE_DIR}/**/include ${CMAKE_SOURCE_DIR}/apps %userprofile%/workspace/eigen)
 ELSE()
-  target_include_directories(graphlib PRIVATE ${CMAKE_SOURCE_DIR}/include ~/workspace/eigen)
-  target_include_directories(Graph PRIVATE ${CMAKE_SOURCE_DIR}/include ~/workspace/eigen)
+  target_include_directories(graphlib PRIVATE ${CMAKE_SOURCE_DIR}/**/include ~/workspace/eigen)
+  target_include_directories(Graph PRIVATE ${CMAKE_SOURCE_DIR}/**/include ~/workspace/eigen)
 ENDIF()
 
 target_link_libraries(graphlib PRIVATE)
