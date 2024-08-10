@@ -1,7 +1,7 @@
 cc_binary(
-    name = "app",
+    name = "apps",
     srcs = ["app.cpp"],
     deps = [
-        "//lib:graph",
+        "//graph:graph",
     ],
 )
