@@ -3,3 +3,4 @@ build/
 .cache
 bazel*
 MODULE.bazel.*
+.DS_Store
