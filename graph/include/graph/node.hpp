@@ -4,10 +4,14 @@
 
 class Node {
  public:
+  using NodePtr = std::shared_ptr<Node>;
+  using Nodes = std::vector<Node>;
+  using NodesSPtr = std::shared_ptr<Nodes>;
+
   Node() = default;
   Node(int const id) : m_id{id} {}
-  Node(int const id, std::vector<Node> const& children)
-      : m_id{id}, m_children{children} {}
+  Node(int const id, NodesSPtr children)
+      : m_id{id}, m_children{std::move(children)} {}
 
   Node(Node const& node)
       : m_id{node.id()}, m_children{node.children()} {}
@@ -15,12 +19,12 @@ class Node {
   int id() const { return m_id; }
   void id(int const id) { m_id = id; }
 
-  std::vector<Node> children() const { return m_children; }
-  void children(std::vector<Node> children) { m_children = children; }
+  NodesSPtr children() const { return m_children; }
+  void children(NodesSPtr children) { m_children = children; }
 
  private:
   int m_id{};
-  std::vector<Node> m_children{};
+  NodesSPtr m_children{};
 };
 
 std::ostream& operator<<(std::ostream& os, Node const& node);
