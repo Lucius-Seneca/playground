@@ -1,0 +1,23 @@
+Checks: '
+  bugprone-*,
+  clang-analyzer-*,
+  clang-diagnostic-*,
+  concurrency-*,
+  cppcoreguidelines-*,
+  misc-*,
+  modernize-*,
+  performance-*,
+  portability-*,
+  readability-*'
+
+WarningsAsErrors: '
+  bugprone-*,
+  concurrency-*,
+  cppcoreguidelines-*,
+  misc-*,
+  modernize-*,
+  readability-*'
+
+CheckOptions:
+  - {key: readability-identifier-naming.ClassCase, values: CamelCase}
+  - {key: readability-identifier-naming.ConstexprVariableCase, value: CamelCase}  

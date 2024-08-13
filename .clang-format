@@ -1,0 +1,10 @@
+---
+Language: Cpp
+BasedOnStyle: Google
+ColumnLimit: 120
+BinPackParameters: true
+DerivePointerAlignment: false
+PointerAlignment: Left
+IndentPDDirectives: AfterHash
+MaxEmptyLinesToKeep: 1
+IncludeBlocks: Regroup
