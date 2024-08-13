@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "BazelBuild.vscode-bazel",
+    "cschlosser.doxdocgen",
+    "DavidAnson.vscode-markdownlint",
+    "eamodio.gitlens",
+    "llvm-vs-code-extensions.vscode-clangd",
+    "ms-vscode.cmake-tools",
+    "ms-vscode.cpptools",
+    "ms-vscode.cpptools-extension-pack",
+    "notskm.clang-tidy",
+    "streetsidesoftware.code-spell-checker",
+  ]
+}
