@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 set(CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(
   Graph
@@ -27,3 +28,10 @@ target_link_libraries(Graph PRIVATE graphlib)
 
 set_property(TARGET graphlib PROPERTY CXX_STANDARD 20)
 set_property(TARGET Graph PROPERTY CXX_STANDARD 20)
+
+add_custom_command(
+  TARGET Graph POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    ${CMAKE_BINARY_DIR}/compile_commands.json
+    ${CMAKE_SOURCE_DIR}/compile_commands.json
+)
