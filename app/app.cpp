@@ -1,8 +1,8 @@
-#include "../graph/include/graph/node.hpp"
-
 #include <iostream>
 
-int main() {
+#include "../graph/include/graph/node.hpp"
+
+auto main() -> int {
   // Generate a graph of structure
   // Node 1              1           n → m : n has child m
   // ├─ Node 2 ─┐      ↙   ↘
@@ -14,8 +14,7 @@ int main() {
   Node node_3(3, std::make_shared<Node::Nodes>(children_of_node_3));
   const Node::Nodes children_of_node_1{node_2, node_3};
 
-  Node node(
-      1, std::make_shared<Node::Nodes>(children_of_node_1));
+  Node node(1, std::make_shared<Node::Nodes>(children_of_node_1));
   std::cout << node << std::endl;
 
   return EXIT_SUCCESS;
