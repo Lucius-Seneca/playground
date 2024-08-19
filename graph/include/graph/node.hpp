@@ -9,13 +9,16 @@ class Node {
   using NodesSPtr = std::shared_ptr<Nodes>;
 
   Node() = default;
-  Node(int const id) : m_id{id} {}
-  Node(int const id, NodesSPtr children) : m_id{id}, m_children{std::move(children)} {}
-
-  Node(Node const& node) : m_id{node.id()}, m_children{node.children()} {}
+  Node(int const given_id) : m_id{given_id} {}
+  Node(int const given_id, NodesSPtr children) : m_id{given_id}, m_children{std::move(children)} {}
+  Node(Node& node) : m_id{node.id()}, m_children{node.children()} {}                       // copy constructor
+  Node(Node&& node) noexcept : m_id{node.id()}, m_children{std::move(node.children())} {}  // move constructor
+  auto operator=(Node const& other) -> Node&;                                              // copy assignment
+  auto operator=(Node&& other) noexcept -> Node&;                                          // move assignment
+  ~Node() = default;                                                                       // destructor
 
   [[nodiscard]] auto id() const -> int { return m_id; }
-  void id(int const id) { m_id = id; }
+  void id(int const given_id) { m_id = given_id; }
 
   [[nodiscard]] auto children() const -> NodesSPtr { return m_children; }
   void children(NodesSPtr children) { m_children = std::move(children); }
