@@ -5,6 +5,6 @@ ColumnLimit: 120
 BinPackParameters: true
 DerivePointerAlignment: false
 PointerAlignment: Left
-IndentPDDirectives: AfterHash
+IndentPPDirectives: AfterHash
 MaxEmptyLinesToKeep: 1
 IncludeBlocks: Regroup
