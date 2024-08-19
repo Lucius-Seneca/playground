@@ -20,4 +20,5 @@ WarningsAsErrors: '
 
 CheckOptions:
   - {key: readability-identifier-naming.ClassCase, values: CamelCase}
+  - {key: readability-identifier-naming.VariableCase, values: lower_case}
   - {key: readability-identifier-naming.ConstexprVariableCase, value: CamelCase}  
