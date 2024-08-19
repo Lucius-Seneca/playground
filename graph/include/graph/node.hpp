@@ -10,21 +10,19 @@ class Node {
 
   Node() = default;
   Node(int const id) : m_id{id} {}
-  Node(int const id, NodesSPtr children)
-      : m_id{id}, m_children{std::move(children)} {}
+  Node(int const id, NodesSPtr children) : m_id{id}, m_children{std::move(children)} {}
 
-  Node(Node const& node)
-      : m_id{node.id()}, m_children{node.children()} {}
+  Node(Node const& node) : m_id{node.id()}, m_children{node.children()} {}
 
-  int id() const { return m_id; }
+  [[nodiscard]] auto id() const -> int { return m_id; }
   void id(int const id) { m_id = id; }
 
-  NodesSPtr children() const { return m_children; }
-  void children(NodesSPtr children) { m_children = children; }
+  [[nodiscard]] auto children() const -> NodesSPtr { return m_children; }
+  void children(NodesSPtr children) { m_children = std::move(children); }
 
  private:
   int m_id{};
   NodesSPtr m_children{};
 };
 
-std::ostream& operator<<(std::ostream& os, Node const& node);
+auto operator<<(std::ostream& out_stream, Node const& node) -> std::ostream&;

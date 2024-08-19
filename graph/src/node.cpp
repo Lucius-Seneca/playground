@@ -6,7 +6,7 @@
 #include <sstream>
 #include <vector>
 
-std::ostream& operator<<(std::ostream& os, Node const& node) {
+auto operator<<(std::ostream& out_stream, Node const& node) -> std::ostream& {
   std::stringstream children_string{};
   if (node.children() == nullptr || node.children()->empty()) {
     children_string << "Children: None";
@@ -17,5 +17,5 @@ std::ostream& operator<<(std::ostream& os, Node const& node) {
     }
     children_string << "]";
   }
-  return os << "Id: " << node.id() << ", " << children_string.str();
+  return out_stream << "Id: " << node.id() << ", " << children_string.str();
 }
