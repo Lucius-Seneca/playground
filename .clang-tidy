@@ -17,6 +17,7 @@ WarningsAsErrors: '
   cppcoreguidelines-*,
   misc-*,
   modernize-*,
+  -modernize-use-trailing-return-type,
   readability-*'
 
 CheckOptions:
