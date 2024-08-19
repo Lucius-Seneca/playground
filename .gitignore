@@ -4,3 +4,4 @@ build/
 bazel*
 MODULE.bazel.*
 .DS_Store
+compile_commands.json
