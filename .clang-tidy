@@ -5,6 +5,7 @@ Checks: '
   concurrency-*,
   cppcoreguidelines-*,
   misc-*,
+  -misc-no-recursion,
   modernize-*,
   performance-*,
   portability-*,
