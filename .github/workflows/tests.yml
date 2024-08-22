@@ -1,0 +1,25 @@
+name: Bazel Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Bazel
+        run: |
+          # Install Bazel (if not already installed)
+          sudo apt-get update
+          sudo apt-get install bazel
+
+      - name: Build and Test
+        run: |
+          # Build and test your Bazel targets
+          bazel test //graph/...
