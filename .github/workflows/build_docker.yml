@@ -28,11 +28,3 @@ jobs:
           context: .
           file: ./Dockerfile
           push: false
-
-      # - name: Set up Docker
-      #   uses: docker/setup-docker@v2
-      #   with:
-      #     dockerfile: ../../Dockerfile
-
-      # - name: Build Docker Image
-      #   run: docker build -t testrepo:latest .
