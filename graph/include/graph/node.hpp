@@ -12,7 +12,7 @@ class Node {
   Node(int const given_id) : m_id{given_id} {}
   Node(int const given_id, NodesSPtr children) : m_id{given_id}, m_children{std::move(children)} {}
   Node(const Node& node) : m_id{node.id()}, m_children{node.children()} {}                 // copy constructor
-  Node(Node&& node) noexcept : m_id{node.id()}, m_children{std::move(node.children())} {}  // move constructor
+  Node(Node&& node) noexcept : m_id{node.id()}, m_children{node.children()} {}  // move constructor
   auto operator=(Node const& other) -> Node&;                                              // copy assignment
   auto operator=(Node&& other) noexcept -> Node&;                                          // move assignment
   ~Node() = default;                                                                       // destructor
