@@ -16,9 +16,6 @@ jobs:
       - name: Setup Bazel
         uses: abhinavsingh/setup-bazel@v3
 
-      - name: Use Bazel (non-Windows)
-        run: bazel -h
-
       - name: Cache Bazelisk-Download
         uses: actions/cache@v2
         env:
