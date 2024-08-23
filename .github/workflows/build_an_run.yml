@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Setup Bazel
-        uses: abhinavsingh/setup-bazel@v3
-
       - name: Cache Bazelisk-Download
         uses: actions/cache@v2
         env:
