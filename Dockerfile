@@ -40,12 +40,15 @@ RUN apt-get update && apt-get install -y \
     clang \
     clangd \
     clang-format \
-    git
+    git \
+    nano
 
 # Add the user as the executing user instead of using root
 # (to avoid dubious git ownerships)
 RUN useradd -m myuser
 USER myuser
+
+RUN git config --global core.editor "nano"
 
 # These commands copy your files into the specified directory in the image
 # and set that as the working location
