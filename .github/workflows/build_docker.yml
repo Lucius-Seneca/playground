@@ -1,0 +1,21 @@
+name: Docker-Build-Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        uses: docker/setup-docker@v2
+        with:
+          dockerfile: ../../Dockerfile
+
+      - name: Build Docker Image
+        run: docker build -t testrepo:latest .
