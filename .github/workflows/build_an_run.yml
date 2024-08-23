@@ -39,3 +39,7 @@ jobs:
       - name: Run App
         run: |
           bazel run //app
+
+      - name: Run tests
+        run: |
+          bazel test //graph/...
