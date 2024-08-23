@@ -13,14 +13,25 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
+      # Caches und stellt das Bazelisk-Downloadverzeichnis wieder her
+      - name: Cache Bazelisk-Download
+        uses: actions/cache@v2
+        env:
+          cache-name: bazel-cache
+        with:
+          path: ~/.cache/bazelisk
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ github.ref }}
+          restore-keys: |
+            ${{ runner.os }}-${{ env.cache-name }}-development
+
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Setup Bazel
-        uses: abhinavsingh/setup-bazel@v3
+      # - name: Setup Bazel
+      #   uses: abhinavsingh/setup-bazel@v3
 
-      - name: Use Bazel (non-Windows)
-        run: bazel -h
+      # - name: Use Bazel (non-Windows)
+      #   run: bazel -h
 
       - name: Build Project
         run: |
