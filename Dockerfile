@@ -9,7 +9,7 @@
 #   clang-format
 
 # Use a simple Ubuntu image as base
-FROM ubuntu:22.04
+FROM --platform=linux/amd64 ubuntu:22.04
 
 # Add bazel repo as a source
 # RUN apt-get update && apt-get install -y \
