@@ -19,6 +19,8 @@ RUN chmod +x /usr/local/bin/buildifier
 
 # Install Bazel, CMake and other dependencies
 RUN apt-get update && apt-get install -y \
+    # bazel \
+    sudo \
     cmake \
     clang \
     clangd \
@@ -30,7 +32,8 @@ RUN apt-get update && apt-get install -y \
 # (to avoid dubious git ownerships)
 ARG USERNAME
 
-RUN useradd -m ${USERNAME}
+RUN useradd -m ${USERNAME} && \
+    echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER ${USERNAME}
 
 RUN git config --global core.editor "nano"
