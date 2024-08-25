@@ -20,6 +20,7 @@ RUN chmod +x /usr/local/bin/buildifier
 # Install Bazel, CMake and other dependencies
 RUN apt-get update && apt-get install -y \
     # bazel \
+    sudo \
     cmake \
     clang \
     clangd \
