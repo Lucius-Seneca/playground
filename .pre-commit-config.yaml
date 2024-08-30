@@ -1,0 +1,23 @@
+---
+default_stages: [commit]
+
+repos:
+  - repo: local
+    hooks:
+      - id: clang-format
+        name: Format C++ files
+        entry: clang-format
+        language: system
+        args: [-i, -Werror]
+        files: \.(cpp|hpp|cc|c|h)$
+      - id: buildifier
+        name: Format Bazel files
+        entry: buildifier
+        files: \.(BUILD|WORKSPACE)$
+        language: system
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml

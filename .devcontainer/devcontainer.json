@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "Existing Dockerfile",
+	"name": "TestRepo",
 	"build": {
 		// Sets the run context to one level up instead of the .devcontainer folder.
 		"context": "..",
@@ -12,13 +12,18 @@
 		"dockerfile": "../Dockerfile"
 	},
 
+	"runArgs": [
+		"-h",
+		"vscode"
+	],
+
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "${localEnv:USER}",
-  "workspaceFolder": "/home/${localEnv:USER}/workspace",
 
 	"mounts": [
 		"source=/etc/passwd,target=/etc/passwd,type=bind",
-		"source=/etc/group,target=/etc/group,type=bind"
+		"source=/etc/group,target=/etc/group,type=bind",
+		"source=/home/${localEnv:USER},target=/home/${localEnv:USER},type=bind",
   ],
 
 	// Configure tool-specific properties.
@@ -44,10 +49,10 @@
 				"notskm.clang-tidy",
 				"streetsidesoftware.code-spell-checker",
 				"yzhang.markdown-all-in-one"
-			],
-			"settings": [
-				"terminal.integrated.shell.linux": "/bin/bash"
 			]
+		},
+		"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash"
 		}
 	}
 

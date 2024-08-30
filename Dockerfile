@@ -19,14 +19,18 @@ RUN chmod +x /usr/local/bin/buildifier
 
 # Install Bazel, CMake and other dependencies
 RUN apt-get update && apt-get install -y \
-    # bazel \
     sudo \
     cmake \
     clang \
     clangd \
     clang-format \
+    clang-tidy \
     git \
-    nano
+    nano \
+    python3 \
+    python3-pip
+
+RUN pip3 install pre-commit
 
 # Add the user as the executing user instead of using root
 # (to avoid dubious git ownerships)
