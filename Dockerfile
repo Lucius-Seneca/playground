@@ -28,7 +28,11 @@ RUN apt-get update && apt-get install -y \
     git \
     nano \
     python3 \
-    python3-pip
+    python3-pip \
+    fontconfig \
+    wget \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install pre-commit
 
@@ -39,6 +43,13 @@ ARG USERNAME
 RUN useradd -m ${USERNAME} && \
     echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER ${USERNAME}
+
+RUN sudo chmod -R 777 /usr/share/ && \
+    wget https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip -O /tmp/Fira_Code.zip && \
+    sudo unzip /tmp/Fira_Code.zip -d /usr/share/fonts/truetype/firacode && \
+    sudo fc-cache -fv
+
+RUN rm /tmp/Fira_Code.zip
 
 RUN git config --global core.editor "nano"
 

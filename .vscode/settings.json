@@ -27,6 +27,8 @@
     "editor.cursorSmoothCaretAnimation": "on",
     "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
     "editor.formatOnSave": true,
+    "editor.fontFamily": "'Fira Code Retina', 'Consolas', 'Ubuntu Mono'",
+    "editor.fontLigatures": "'calt', 'cv01', 'cv02', 'cv06', 'cv14', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'onum'",
     "editor.lineHeight": 1.6,
     "editor.tabSize": 2,
     "editor.inlayHints.enabled": "offUnlessPressed",
