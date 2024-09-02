@@ -29,10 +29,6 @@ jobs:
       - name: Build Project
         run: |
           bazel build //app //graph
-      
-      - name: Run App
-        run: |
-          bazel run //app
 
       - name: Run tests
         run: |
