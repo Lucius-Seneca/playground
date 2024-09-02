@@ -56,9 +56,9 @@ CheckOptions:
     value: '^[A-Z]+(_[A-Z]+)*_$'
   - key: readability-identifier-naming.MemberCase
     value: lower_case
-  - key: readability-identifier-naming.PrivateMemberSuffix
+  - key: readability-identifier-naming.PrivateMemberPrefix
     value: m
-  - key: readability-identifier-naming.PublicMemberSuffix
+  - key: readability-identifier-naming.PublicMemberPrefix
     value: m
   - key: readability-identifier-naming.NamespaceCase
     value: lower_case
