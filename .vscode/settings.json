@@ -39,6 +39,7 @@
     "workbench.list.smoothScrolling": true,
     "workbench.preferredDarkColorTheme": "Default Dark Modern",
     "workbench.preferredLightColorTheme": "Default Light Modern",
-    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontFamily": "'Fira Code Retina', 'Consolas', 'Ubuntu Mono'",
+    "terminal.integrated.lineHeight": 1.2,
     "terminal.integrated.smoothScrolling": true,
 }
