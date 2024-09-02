@@ -17,6 +17,7 @@ WarningsAsErrors: '
   cppcoreguidelines-*,
   -cppcoreguidelines-avoid-non-const-global-variables,
   misc-*,
+  -misc-definitions-in-headers,
   modernize-*,
   -modernize-use-trailing-return-type,
   readability-*'
