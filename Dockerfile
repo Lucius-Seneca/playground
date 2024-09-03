@@ -44,6 +44,9 @@ RUN useradd -m ${USERNAME} && \
     echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 USER ${USERNAME}
 
+RUN mkdir -p /home/${USERNAME}/.cache/ccache && touch /home/${USERNAME}/.cache/.bash_history \
+    && chown -R ${USERNAME} /home/${USERNAME}/.cache
+
 RUN sudo chmod -R 777 /usr/share/ && \
     wget https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip -O /tmp/Fira_Code.zip && \
     sudo unzip /tmp/Fira_Code.zip -d /usr/share/fonts/truetype/firacode && \
