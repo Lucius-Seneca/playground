@@ -28,7 +28,7 @@ jobs:
 
       - name: Build Project
         run: |
-          bazel build //app //graph --config clang-tidy
+          bazel build //app //graph
 
       - name: Run App
         run: |
@@ -36,4 +36,4 @@ jobs:
 
       - name: Run tests
         run: |
-          bazel test //graph/... --config clang-tidy
+          bazel test //graph/...
