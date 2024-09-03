@@ -7,25 +7,21 @@
 		"context": "..",
 		"args": {
 			"USERNAME": "${localEnv:USER}"
-    },
+		},
 		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 		"dockerfile": "../Dockerfile"
 	},
-
 	"runArgs": [
 		"-h",
 		"vscode"
 	],
-
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "${localEnv:USER}",
-
 	"mounts": [
 		"source=/etc/passwd,target=/etc/passwd,type=bind",
 		"source=/etc/group,target=/etc/group,type=bind",
-		"source=/home/${localEnv:USER},target=/home/${localEnv:USER},type=bind",
-  ],
-
+		"source=/home/${localEnv:USER},target=/home/${localEnv:USER},type=bind"
+	],
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {
@@ -52,16 +48,13 @@
 			]
 		},
 		"settings": {
-				"terminal.integrated.shell.linux": "/bin/bash"
+			"terminal.integrated.shell.linux": "/bin/bash"
 		}
 	},
-
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
 	// Uncomment the next line to run commands after the container is created.
 	"postCreateCommand": "chmod +x ./install_pre_commit.sh && ./install_pre_commit.sh"
 }
