@@ -12,6 +12,11 @@ class Module {
   using Modules = std::vector<ModulePtr>;
 
   Module(std::string given_id) : m_id{std::move(given_id)} {}
+  Module(const Module& node) = default;                  // copy constructor
+  Module(Module&& node) noexcept = default;              // move constructor
+  Module& operator=(Module const& other) = default;      // copy assignment
+  Module& operator=(Module&& other) noexcept = default;  // move assignment
+  virtual ~Module() = default;
 
   [[nodiscard]] auto id() const -> std::string { return m_id; }
   void id(std::string const& given_id) { m_id = given_id; }
@@ -19,12 +24,12 @@ class Module {
   [[nodiscard]] auto connections() const -> Modules { return m_connections; }
   void connections(Modules children) { m_connections = std::move(children); }
 
-  void sendImpulse(const Impulse impulse) {
-    Impulse processed_impulse = processImpulse(impulse);
+  virtual void sendImpulse(const Impulse impulse, [[maybe_unused]] const std::string& module_id = std::string{}) {
+    Impulse processed_impulse = impulse;
     if (!m_connections.empty()) {
       for (auto& connection : m_connections) {
         count(processed_impulse);
-        connection->sendImpulse(processed_impulse);
+        connection->sendImpulse(processed_impulse, m_id);
       }
     }
   }
@@ -35,10 +40,6 @@ class Module {
     } else {
       low_impulse_count++;
     }
-  }
-  Impulse processImpulse(Impulse impulse) {
-    m_entry_impulse = impulse;
-    return m_entry_impulse;
   }
 
   // Funktion: Impuls schicken () -> Bearbeite deinen Eingangsimpuls, Eingangsimpuls ändern Connections, Impuls schicken
@@ -53,7 +54,7 @@ class Module {
   static int high_impulse_count;
   static int low_impulse_count;
 
- private:
+ protected:
   std::string m_id{};
   Impulse m_entry_impulse{};
   Modules m_connections{};
