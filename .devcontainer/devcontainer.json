@@ -56,5 +56,5 @@
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 	// Uncomment the next line to run commands after the container is created.
-	"postCreateCommand": "chmod +x ./install_pre_commit.sh && ./install_pre_commit.sh"
+	"postCreateCommand": "chmod +x ./install_pre_commit.sh && ./install_pre_commit.sh && chmod +x ./install_zsh.sh && ./install_zsh.sh"
 }
