@@ -48,7 +48,7 @@
 			]
 		},
 		"settings": {
-			"terminal.integrated.shell.linux": "/bin/bash"
+			"terminal.integrated.shell.linux": "/bin/zsh"
 		}
 	},
 	// Features to add to the dev container. More info: https://containers.dev/features.

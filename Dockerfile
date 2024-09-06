@@ -54,6 +54,6 @@ ENV TERM=xterm-256color
 ENV PS1='\[\e[92m\]\u\[\e[0m\]@\[\e[94m\]\h\[\e[0m\]:\[\e[35m\]\w\[\e[0m\]# '
 
 # This command runs your application, comment out this line to compile only
-CMD ["/bin/bash"]
+CMD ["/bin/zsh"]
 
 LABEL Name=testrepo Version=0.0.1
