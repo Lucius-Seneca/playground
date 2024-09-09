@@ -43,6 +43,8 @@
 				"ms-vscode-remote.vscode-remote-extensionpack",
 				"ms-vsliveshare.vsliveshare",
 				"notskm.clang-tidy",
+				"npv2k1.theme-dracula-gray",
+				"sonarsource.sonarlint-vscode",
 				"streetsidesoftware.code-spell-checker",
 				"yzhang.markdown-all-in-one"
 			]
