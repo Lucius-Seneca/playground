@@ -6,7 +6,10 @@
 #include <sstream>
 #include <vector>
 
-auto operator<<(std::ostream& out_stream, Node const& node) -> std::ostream& {
+Node::Node(int const given_id) : m_id{given_id} {};
+Node::Node(int const given_id, NodesSPtr children) : m_id{given_id}, m_children{std::move(children)} {};
+
+std::ostream& operator<<(std::ostream& out_stream, Node const& node) {
   std::stringstream children_string{};
   if (node.children() == nullptr || node.children()->empty()) {
     children_string << "Children: None";

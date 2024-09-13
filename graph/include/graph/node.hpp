@@ -1,5 +1,6 @@
 #include <memory>
 #include <optional>
+#include <sstream>
 #include <vector>
 
 class Node {
@@ -9,13 +10,13 @@ class Node {
   using NodesSPtr = std::shared_ptr<Nodes>;
 
   Node() = default;
-  Node(int const given_id) : m_id{given_id} {}
-  Node(int const given_id, NodesSPtr children) : m_id{given_id}, m_children{std::move(children)} {}
-  Node(const Node& node) : m_id{node.id()}, m_children{node.children()} {}      // copy constructor
-  Node(Node&& node) noexcept : m_id{node.id()}, m_children{node.children()} {}  // move constructor
-  auto operator=(Node const& other) -> Node&;                                   // copy assignment
-  auto operator=(Node&& other) noexcept -> Node&;                               // move assignment
-  ~Node() = default;                                                            // destructor
+  explicit Node(int const given_id);
+  Node(int const given_id, NodesSPtr children);
+  Node(const Node& node) = default;                          // copy constructor
+  Node(Node&& node) noexcept = default;                      // move constructor
+  auto operator=(Node const& other) -> Node& = default;      // copy assignment
+  auto operator=(Node&& other) noexcept -> Node& = default;  // move assignment
+  ~Node() = default;                                         // destructor
 
   [[nodiscard]] auto id() const -> int { return m_id; }
   void id(int const given_id) { m_id = given_id; }
@@ -28,4 +29,4 @@ class Node {
   NodesSPtr m_children{};
 };
 
-auto operator<<(std::ostream& out_stream, Node const& node) -> std::ostream&;
+std::ostream& operator<<(std::ostream& out_stream, Node const& node);
