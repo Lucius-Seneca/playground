@@ -9,6 +9,7 @@ Checks: '
   -misc-no-recursion,
   -misc-definitions-in-headers,
   modernize-*,
+  -modernize-use-trailing-return-type,
   performance-*,
   portability-*,
   readability-*,
