@@ -19,19 +19,19 @@ RUN chmod +x /usr/local/bin/buildifier
 
 # Install Bazel, CMake and other dependencies
 RUN apt-get update && apt-get install -y \
-    sudo \
-    cmake \
     clang \
     clangd \
     clang-format \
     clang-tidy \
+    cmake \
+    fontconfig \
     git \
     nano \
     python3 \
     python3-pip \
-    fontconfig \
-    wget \
+    sudo \
     unzip \
+    wget \
     zsh \
     && rm -rf /var/lib/apt/lists/*
 
