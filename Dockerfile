@@ -5,11 +5,12 @@ FROM --platform=linux/amd64 ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # To enable package configuration
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
+RUN apt-get update && apt-get install -y --no-install-recommends apt-utils && rm -rf /var/lib/apt/lists/*
 
 # Add Bazelisk to the docker
 RUN apt-get update && apt-get install -y \
-    apt-transport-https curl gnupg
+    apt-transport-https curl gnupg \
+    && rm -rf /var/lib/apt/lists/*
 RUN curl -Lo /usr/local/bin/bazel https://github.com/bazelbuild/bazelisk/releases/latest/download/bazelisk-linux-amd64
 RUN chmod +x /usr/local/bin/bazel
 
@@ -20,9 +21,9 @@ RUN chmod +x /usr/local/bin/buildifier
 # Install Bazel, CMake and other dependencies
 RUN apt-get update && apt-get install -y \
     clang \
-    clangd \
     clang-format \
     clang-tidy \
+    clangd \
     cmake \
     fontconfig \
     git \
@@ -47,9 +48,7 @@ RUN useradd -m ${USERNAME} && \
 USER ${USERNAME}
 
 RUN mkdir -p /home/${USERNAME}/.cache/ccache && touch /home/${USERNAME}/.cache/.bash_history \
-    && chown -R ${USERNAME} /home/${USERNAME}/.cache
-
-RUN git config --global core.editor "nano"
+    && chown -R ${USERNAME} /home/${USERNAME}/.cache && git config --global core.editor "nano"
 
 ENV TERM=xterm-256color
 ENV PS1='\[\e[92m\]\u\[\e[0m\]@\[\e[94m\]\h\[\e[0m\]:\[\e[35m\]\w\[\e[0m\]# '
@@ -57,4 +56,4 @@ ENV PS1='\[\e[92m\]\u\[\e[0m\]@\[\e[94m\]\h\[\e[0m\]:\[\e[35m\]\w\[\e[0m\]# '
 # This command runs your application, comment out this line to compile only
 CMD ["/bin/zsh"]
 
-LABEL Name=testrepo Version=0.0.1
+LABEL Name=playground Version=0.0.1
