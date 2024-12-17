@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y \
     cmake \
     fontconfig \
     git \
+    iputils-ping \
     nano \
     python3 \
     python3-pip \
