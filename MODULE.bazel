@@ -9,8 +9,12 @@
 # https://registry.bazel.build/modules/googletest
 bazel_dep(name = "googletest", version = "1.15.2")
 
+# Add rules_python dependency (Required from "googletest")
+bazel_dep(name = "rules_python", version = "0.24.0")
+
 # Hedron's Compile Commands Extractor for Bazel
 # https://github.com/hedronvision/bazel-compile-commands-extractor
+# With this `bazel run :refresh_compile_commands` will generate compile_commands.json
 bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
 git_override(
     module_name = "hedron_compile_commands",
