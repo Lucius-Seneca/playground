@@ -5,4 +5,5 @@ def generate_binaries(srcs, deps=[]):
             name = name,
             srcs = [src],
             deps = deps,
+            visibility = ["//visibility:public"],
         )
