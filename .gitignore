@@ -1,7 +1,8 @@
 bin/
 build/
-.cache
 bazel*
-MODULE.bazel.*
-.DS_Store
 compile_commands.json
+external/
+MODULE.bazel.*
+.cache
+.DS_Store
