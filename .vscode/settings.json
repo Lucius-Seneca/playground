@@ -33,6 +33,7 @@
     "editor.semanticHighlighting.enabled": true,
     "editor.smoothScrolling": true,
     "editor.stickyTabStops": true,
+    "files.encoding": "utf8",
     "window.autoDetectColorScheme": true,
     "workbench.editor.pinnedTabsOnSeparateRow": true,
     "workbench.list.smoothScrolling": true,
@@ -40,5 +41,5 @@
     "terminal.integrated.smoothScrolling": true,
     "terminal.integrated.defaultProfile.linux": "zsh",
     "terminal.integrated.defaultProfile.windows": "zsh",
-    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json"
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json"
 }
