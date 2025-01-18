@@ -10,6 +10,12 @@ then
     sudo apt install -y pre-commit
 fi
 
+# Install the latest version of pre-commit using pip
+echo "Upgrade pre-commit to the latest version."
+RUN pip3 install --upgrade pre-commit
+
+echo "pre-commit updated to the latest version."
+
 # Run pre-commit install
 echo "Commit hooks are being installed ..."
 pre-commit install

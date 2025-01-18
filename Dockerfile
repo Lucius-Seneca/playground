@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y \
     git \
     iputils-ping \
     nano \
+    pre-commit \
     python3 \
     python3-pip \
     sudo \
@@ -37,18 +38,21 @@ RUN apt-get update && apt-get install -y \
     zsh \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install pre-commit
-
 # Add the user as the executing user instead of using root
 # (to avoid dubious git ownerships)
 ARG USERNAME
 
 RUN useradd -m ${USERNAME} && \
     echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-USER ${USERNAME}
 
+# Fix ownership issues
 RUN mkdir -p /home/${USERNAME}/.cache/ccache && touch /home/${USERNAME}/.cache/.bash_history \
-    && chown -R ${USERNAME} /home/${USERNAME}/.cache && git config --global core.editor "nano"
+    && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME} \
+    && chown -R ${USERNAME}:${USERNAME} /usr/local/bin/bazel \
+    && chown -R ${USERNAME}:${USERNAME} /usr/local/bin/buildifier \
+    && git config --global core.editor "nano"
+
+USER ${USERNAME}
 
 ENV TERM=xterm-256color
 ENV PS1='\[\e[92m\]\u\[\e[0m\]@\[\e[94m\]\h\[\e[0m\]:\[\e[35m\]\w\[\e[0m\]# '
