@@ -7,6 +7,7 @@ cc_binary(
         "@googletest//:gtest",
         "@googletest//:gtest_main",
         "//graph:graph",
+        "//calculations:calculations",
     ],
     visibility = ["//visibility:public"],
 )
