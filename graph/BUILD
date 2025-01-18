@@ -2,7 +2,7 @@ cc_library(
     name = "graph",
     srcs = glob(["src/*.cpp"]),
     hdrs = glob(["include/graph/*.hpp"]),
-    visibility = ["//app:__pkg__"],
+    visibility = ["//app:__pkg__", "//dummy:__pkg__"],
 )
 
 cc_test(

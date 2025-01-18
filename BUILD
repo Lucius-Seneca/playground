@@ -4,20 +4,9 @@ alias(
     actual = "//app:app",
 )
 
-cc_library(
-    name = "graph",
-    srcs = glob(["graph/**/*.cpp"]),
-    hdrs = glob(["graph/**/*.h"]),
-    visibility = ["//visibility:public"],
-)
-
-cc_binary(
-    name = "main_app",
-    srcs = ["main.cpp"],
-    deps = [
-        ":graph",
-        "//app:app",
-    ],
+alias(
+    name = "dummy",
+    actual = "//dummy:dummy",
 )
 
 load("@hedron_compile_commands//:refresh_compile_commands.bzl", "refresh_compile_commands")
@@ -29,6 +18,7 @@ refresh_compile_commands(
     # For example, specify a dict of targets and any flags required to build.
     targets = {
       "//:app": "",
+      "//:dummy": "",
     },
     # No need to add flags already in .bazelrc. They're automatically picked up.
     # If you don't need flags, a list of targets is also okay, as is a single target string.
