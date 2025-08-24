@@ -1,1 +1,1 @@
-build --action_env=CC=clang --cxxopt=-std=c++20 --linkopt=-std=c++20 --compiler=clang --copt="-Wall" --copt="-Werror" --test_output=all --incompatible_disallow_empty_glob=false
+build --action_env=CC=clang --cxxopt=-std=c++20 --linkopt=-std=c++20 --compiler=clang --copt="-Wall" --copt="-Werror" --copt=-Wno-unknown-warning-option --test_output=all --incompatible_disallow_empty_glob=false

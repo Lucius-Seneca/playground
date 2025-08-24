@@ -6,6 +6,11 @@ cc_binary(
     deps = [
         "@googletest//:gtest",
         "@googletest//:gtest_main",
+        "@eigen//:eigen",
+        "@lanelet2//:lanelet2_io",
+        "@lanelet2//:lanelet2_core",
+        # Add any other dependencies here
+        # including internal dependencies
         "//graph:graph",
         "//calculations:calculations",
     ],

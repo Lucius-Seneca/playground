@@ -15,6 +15,9 @@ Checks: '
   readability-*,
   -readability-avoid-const-params-in-decls'
 
+# Ignore external libraries
+HeaderFilterRegex: '^(?!external/).*$'
+
 WarningsAsErrors: '
   bugprone-*,
   concurrency-*,

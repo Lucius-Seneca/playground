@@ -23,7 +23,6 @@ RUN apt-get update && apt-get install -y \
     clang \
     clang-format \
     clang-tidy \
-    clangd \
     cmake \
     fontconfig \
     git \
@@ -38,6 +37,22 @@ RUN apt-get update && apt-get install -y \
     zsh \
     && rm -rf /var/lib/apt/lists/*
 
+# Configure Git to trust the workspace directory
+RUN git config --global --add safe.directory /workspaces/playground
+
+# Use current clangd version
+RUN curl -Lo clangd-linux-19.1.2.zip https://github.com/clangd/clangd/releases/download/19.1.2/clangd-linux-19.1.2.zip \
+    && unzip clangd-linux-19.1.2.zip -d /usr/local/bin \
+    && rm clangd-linux-19.1.2.zip
+
+RUN curl -Lo clangd_indexing_tools-linux-19.1.2.zip https://github.com/clangd/clangd/releases/download/19.1.2/clangd_indexing_tools-linux-19.1.2.zip \
+    && unzip -o clangd_indexing_tools-linux-19.1.2.zip -d /usr/local/bin \
+    && rm clangd_indexing_tools-linux-19.1.2.zip
+
+# Ensure clangd is executable and create a symbolic link
+RUN chmod +x /usr/local/bin/clangd*/bin/clangd \
+    && ln -s /usr/local/bin/clangd*/bin/clangd /usr/local/bin/clangd
+
 # Add the user as the executing user instead of using root
 # (to avoid dubious git ownerships)
 ARG USERNAME
@@ -50,6 +65,7 @@ RUN mkdir -p /home/${USERNAME}/.cache/ccache && touch /home/${USERNAME}/.cache/.
     && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME} \
     && chown -R ${USERNAME}:${USERNAME} /usr/local/bin/bazel \
     && chown -R ${USERNAME}:${USERNAME} /usr/local/bin/buildifier \
+    && chown -R ${USERNAME}:${USERNAME} /usr/local/bin/clangd_19.1.2 \
     && git config --global core.editor "nano"
 
 USER ${USERNAME}
